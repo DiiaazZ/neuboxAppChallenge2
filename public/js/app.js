@@ -19866,7 +19866,7 @@ var routes = [{
   component: ResetPasswordUser
 }, {
   name: 'Comment',
-  path: '/intranet/comment',
+  path: '/intranet/comment/:id,:name,:api',
   component: Comment
 }];
 

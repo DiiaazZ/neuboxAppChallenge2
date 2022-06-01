@@ -11,10 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config */ "./resources/js/config.js");
-
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config */ "./resources/js/config.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -61,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
         password: this.login.contraseña
       }; // ENVIAR SOLICITUD A LA API
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post(_config__WEBPACK_IMPORTED_MODULE_1__.url_api + '/api/login', parametros).then(function (response) {
+      this.axios.post(_config__WEBPACK_IMPORTED_MODULE_0__.url_api + '/api/login', parametros).then(function (response) {
         console.dir(response);
 
         if (response['status'] == '200') {
@@ -71,9 +68,16 @@ __webpack_require__.r(__webpack_exports__);
             title: "Bienvenido ".concat(response['data']['data']['name'], "."),
             showConfirmButton: false,
             timer: 1500
-          });
+          }); // this.$router.push(`/intranet/comment/${response['data']['data']}`);
 
-          _this.$router.push("/intranet/comment?".concat(response['data']['data']['api_token']));
+          _this.$router.push({
+            name: "Comment",
+            params: {
+              id: response['data']['data']['id'],
+              name: response['data']['data']['name'],
+              api: response['data']['data']['api_token']
+            }
+          });
         } else {
           Swal.fire({
             position: 'top-end',

@@ -84,7 +84,6 @@
     </div>
 </template>
 <script>
-    import axios from 'axios';
     import { url_api } from '../../config';
 
     export default{
@@ -176,7 +175,7 @@
                 };
 
                 // ENVIAR SOLICITUD A LA API
-                axios.post(url_api+'/api/register', parametros)
+                this.axios.post(url_api+'/api/register', parametros)
                     .then(response => {
                         // console.log(response['data']['data']['api_token']);
                         // console.log(response['status']);

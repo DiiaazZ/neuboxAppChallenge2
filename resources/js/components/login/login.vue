@@ -57,7 +57,6 @@
     </div>
 </template>
 <script>
-    import axios from 'axios';
     import { url_api } from '../../config';
 
     export default{
@@ -104,7 +103,7 @@
                 };
 
                 // ENVIAR SOLICITUD A LA API
-                axios.post(url_api+'/api/login', parametros)
+                this.axios.post(url_api+'/api/login', parametros)
                     .then(response => {
                         console.dir(response);
 
@@ -116,7 +115,13 @@
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            this.$router.push(`/intranet/comment?${response['data']['data']['api_token']}`);
+                            // this.$router.push(`/intranet/comment/${response['data']['data']}`);
+                            this.$router.push({name: "Comment", params:{
+                                    id:response['data']['data']['id'],
+                                    name:response['data']['data']['name'],
+                                    api:response['data']['data']['api_token'],
+                                }
+                            });
                         }else{
                             Swal.fire({
                                 position: 'top-end',

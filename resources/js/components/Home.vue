@@ -483,18 +483,3 @@
 
     </div>
 </template>
-<script>
-    import axios from 'axios';
-    import { url_api } from '../config';
-
-    export default{
-        data(){
-            return{
-            }
-        },
-        methods:{
-            // LISTA DE FUNCIONES
-           
-        }
-    }
-</script>

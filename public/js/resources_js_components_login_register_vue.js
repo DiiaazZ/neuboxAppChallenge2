@@ -11,10 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config */ "./resources/js/config.js");
-
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config */ "./resources/js/config.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -104,7 +101,7 @@ __webpack_require__.r(__webpack_exports__);
         password_confirmation: this.usuario.password_confirmation
       }; // ENVIAR SOLICITUD A LA API
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post(_config__WEBPACK_IMPORTED_MODULE_1__.url_api + '/api/register', parametros).then(function (response) {
+      this.axios.post(_config__WEBPACK_IMPORTED_MODULE_0__.url_api + '/api/register', parametros).then(function (response) {
         // console.log(response['data']['data']['api_token']);
         // console.log(response['status']);
         if (response['status'] == '201') {
