@@ -117,6 +117,14 @@ __webpack_require__.r(__webpack_exports__);
           });
 
           _this.$router.push("/intranet/comment?".concat(response['data']['data']['api_token']));
+        } else {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'warning',
+            title: response['response']['data']['message'],
+            showConfirmButton: false,
+            timer: 1500
+          });
         }
 
         _this.btnCargando = 'display: none;';
@@ -125,6 +133,13 @@ __webpack_require__.r(__webpack_exports__);
         console.dir(error);
         _this.btnCargando = 'display: none;';
         _this.btnRegistrar = '';
+        Swal.fire({
+          position: 'top-end',
+          icon: 'warning',
+          title: error['response']['data']['message'],
+          showConfirmButton: false,
+          timer: 1500
+        });
       });
     }
   }
@@ -165,10 +180,7 @@ var _hoisted_4 = {
 };
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fa-solid fa-compass",
-  style: {
-    "color": "#fe6261"
-  }
+  "class": "fa-solid fa-compass textNaranja"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" emprenD")], -1
 /* HOISTED */
 );
@@ -177,7 +189,7 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\"><div class=\"col-sm\"></div><div class=\"col-sm\"><h3>Registrar Nuevo Usuario</h3><hr style=\"color:#fe6261;\"></div><div class=\"col-sm\"></div></div>", 1);
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\"><div class=\"col-sm\"></div><div class=\"col-sm\"><h3>Registrar Nuevo Usuario</h3><hr style=\"color:#fe6261;border-width:3px;\" class=\"border-3 opacity-75\"></div><div class=\"col-sm\"></div></div>", 1);
 
 var _hoisted_8 = {
   "class": "row"

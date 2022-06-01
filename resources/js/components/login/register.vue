@@ -5,7 +5,7 @@
             <div class="col-sm">
                 <center>
                     <router-link to="/intranet" style="color: white; text-decoration: none;">
-                        <h1><i class="fa-solid fa-compass" style="color: #fe6261;"></i> emprenD</h1>
+                        <h1><i class="fa-solid fa-compass textNaranja" ></i> emprenD</h1>
                     </router-link>
                 </center>
             </div>
@@ -16,7 +16,7 @@
             <div class="col-sm"></div>
             <div class="col-sm">
                 <h3>Registrar Nuevo Usuario</h3>
-                <hr style="color: #fe6261;">
+                <hr style="color: #fe6261; border-width: 3px;" class="border-3 opacity-75">
             </div>
             <div class="col-sm"></div>
         </div>
@@ -86,7 +86,7 @@
 <script>
     import axios from 'axios';
     import { url_api } from '../../config';
-    
+
     export default{
         data(){
             return{
@@ -189,6 +189,14 @@
                                 timer: 1500
                             });
                             this.$router.push(`/intranet/comment?${response['data']['data']['api_token']}`);
+                        }else{
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'warning',
+                                title: response['response']['data']['message'],
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
                         }
 
                         this.btnCargando = 'display: none;';
@@ -197,6 +205,14 @@
                         console.dir(error);
                         this.btnCargando = 'display: none;';
                         this.btnRegistrar = '';
+
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'warning',
+                            title: error['response']['data']['message'],
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                     });
             }
         }
