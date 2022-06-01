@@ -1,6 +1,6 @@
 ## NEUBOX CHALLENGE APP
 
-Este proyecto fue creado para el reto de neubox challenge 2, el mismo ha sido desarrollado el lenguaje de PHP y JS, utilizando las tecnologías, framework Laravel 9 + Vue.js 3 + Bootstrap 5.
+Este proyecto fue creado para el reto de neubox challenge 2, el mismo ha sido desarrollado en el lenguaje de PHP y JS, utilizando las tecnologías, framework Laravel 9 + Vue.js 3 + Bootstrap 5.
 
 ### Documentación usada.
 
@@ -30,6 +30,7 @@ Nota: La API proporcionada para el reto está pensada para sistemas MAC o Linux,
 ### Para poder ejecutar la API proporcionada para el reto, sin errores, es necesario configurar el archivo "docker-compose.yml".
 
 1.- Deberás configurar los puertos para cada servicio, permitiendo el acceso desde fuera de los contenedores.
+
 2.- Ejecuta nuevamente el comando.
 
     docker-compose up -d
@@ -37,14 +38,25 @@ Nota: La API proporcionada para el reto está pensada para sistemas MAC o Linux,
 ### Error - docker no ejecuta el servicio para la API en el puerto especificado (8000).
 
 1.- Para poder utilizar la API deberás ejecutar el contenido de la carpeta "src".
+
 2.- Configura el archivo ".env" en el valor DB_HOST, cambiar el valor actual por la IP especificada anteriormente para el servicio de MySQL.
-3.- Ejecuta el servidor con el comando.
+
+3.- Instalar dependencias
+
+    composer install
+
+4.- Instalar dependencias 2
+
+    npm install
+
+5.- Ejecuta el servidor con el comando.
 
     php artisan serve
 
 ## Instalación Previo de la APP.
 
 Antes de ejecutar la APP deberás descargar las dependencias.
+
 1.- Comando 1
 
     composer install
@@ -55,8 +67,10 @@ Antes de ejecutar la APP deberás descargar las dependencias.
 
 3.- Configura el archivo ".env".
 
-Una vez instaladas las dependencias puedes ejecutar la aplicación correctamente
+Una vez instaladas las dependencias puedes ejecutar la aplicación correctamente.
 
     php artisan serve
+
+Para abrir la vista hacia el login de la APP, debes acceder a la IntraNet agregando a la barra de tu navegador "/intranet".
 
 ### Por favor, si encuentras vulnerabilidades, fallos o posibles mejoras en el código, favor de informarme mandando un new issues.

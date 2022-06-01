@@ -19760,7 +19760,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
  // IMPORTAMOS PAGINA PRINCIPAL
@@ -19768,14 +19767,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  // IMPORTAMOS AXIOS VUE
 
 
- // // IMPORTAMOS ENRUTADOR VUE Y CONFIGURAMOS
+ // IMPORTAMOS ENRUTADOR VUE Y CONFIGURAMOS
 
 
 
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_5__.createRouter)({
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_5__.createWebHashHistory)(process.env.BASE_URL),
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_5__.createWebHistory)(),
   routes: _routes__WEBPACK_IMPORTED_MODULE_4__.routes
-});
+}); // INICIAMOS EL OBJETO, CARGANDO AXIOS, ROUTER Y VISTA A VUE.
+
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)(_components_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
 app.use(vue_axios__WEBPACK_IMPORTED_MODULE_2__["default"], (axios__WEBPACK_IMPORTED_MODULE_3___default()));
 app.use(router);

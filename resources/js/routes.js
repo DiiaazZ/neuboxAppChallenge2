@@ -30,5 +30,5 @@ export const routes = [
         name: 'Comment',
         path: '/intranet/comment',
         component: Comment
-    },
+    }
 ];

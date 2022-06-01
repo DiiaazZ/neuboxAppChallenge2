@@ -2,7 +2,7 @@
     <!-- SECCION DE MENU -->
     <nav class="navbar navbar-expand-md bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand">
                 <i class="fa-solid fa-compass" style="color: #fe6261;"></i>
                 emprenD
                 <!-- <h1><i class="fa-solid fa-compass" style="color: #fe6261;"></i> emprenD</h1> -->
@@ -483,3 +483,18 @@
 
     </div>
 </template>
+<script>
+    import axios from 'axios';
+    import { url_api } from '../config';
+
+    export default{
+        data(){
+            return{
+            }
+        },
+        methods:{
+            // LISTA DE FUNCIONES
+           
+        }
+    }
+</script>

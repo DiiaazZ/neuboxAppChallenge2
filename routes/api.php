@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::resource('user', App\Http\Controllers\UserController::class);
-Route::resource('commnet', App\Http\Controllers\CommentController::class);
+// Route::resource('user', App\Http\Controllers\UserController::class);
+// Route::resource('commnet', App\Http\Controllers\CommentController::class);

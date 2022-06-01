@@ -11,9 +11,9 @@ import axios from 'axios';
 
 // IMPORTAMOS ENRUTADOR VUE Y CONFIGURAMOS
 import { routes } from './routes';
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 const router = createRouter({
-    history: createWebHashHistory(process.env.BASE_URL),
+    history: createWebHistory(),
     routes: routes
 })
 

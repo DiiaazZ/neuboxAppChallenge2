@@ -50,15 +50,3 @@
         </div>
     </div>
 </template>
-
-<!-- <div class="row">
-    <div class="col-sm">
-        <router-link to="/intranet/register">Registrar nuevo usuario</router-link>
-    </div>
-    <div class="col-sm">
-        <router-link to="/intranet/resetPass">Restaurar contraseña</router-link>
-    </div>
-    <div class="col-sm">
-        <router-link to="/intranet/comment">Prueba Comments</router-link>
-    </div>
-</div> -->

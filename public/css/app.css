@@ -1,10 +1,16 @@
-#myFontPoppis1{
-    font-family: Poppins Black;
-}
-#myFontPoppis2{
-    font-family: Poppins light;
+.inputError{
+    color: red;
 }
 
-#myFontPoppis3{
-    font-family: 'Courier New', Courier, monospace;
+.btnRojoDerecha{
+    background-color: #fe6261; 
+    color: white;
+    float: right;
+    border: 0;
+    padding: 5%;
 }
+/* .btnRojoDerecha:hover{
+    background-color: white; 
+    color: #fe6261;
+    border: 1px solid #fe6261;
+} */
