@@ -58,9 +58,7 @@ __webpack_require__.r(__webpack_exports__);
         password: this.login.contraseña
       }; // ENVIAR SOLICITUD A LA API
 
-      this.axios.post(_config__WEBPACK_IMPORTED_MODULE_0__.url_api + '/api/login', parametros).then(function (response) {
-        console.dir(response);
-
+      this.axios.post(_config__WEBPACK_IMPORTED_MODULE_0__.api_config.url + _config__WEBPACK_IMPORTED_MODULE_0__.api_config.post_login, parametros).then(function (response) {
         if (response['status'] == '200') {
           Swal.fire({
             position: 'top-end',
@@ -79,13 +77,7 @@ __webpack_require__.r(__webpack_exports__);
             }
           });
         } else {
-          Swal.fire({
-            position: 'top-end',
-            icon: 'warning',
-            title: response['response']['data']['message'],
-            showConfirmButton: false,
-            timer: 1500
-          });
+          _this.mensajeDefault();
         }
 
         _this.btnCargando = 'display: none;';
@@ -94,13 +86,17 @@ __webpack_require__.r(__webpack_exports__);
         console.dir(error);
         _this.btnCargando = 'display: none;';
         _this.btnLoguear = '';
-        Swal.fire({
-          position: 'top-end',
-          icon: 'warning',
-          title: error['response']['data']['message'],
-          showConfirmButton: false,
-          timer: 1500
-        });
+
+        _this.mensajeDefault();
+      });
+    },
+    mensajeDefault: function mensajeDefault() {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Usuario y/o contraseña incorrectos.',
+        showConfirmButton: false,
+        timer: 1500
       });
     }
   }
@@ -304,7 +300,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, "Este campo no debe quedar vacío", 4
   /* STYLE */
   )]), _hoisted_12]), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
+    type: "password",
     "class": "form-control",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.login.contraseña = $event;
@@ -354,9 +350,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "url_api": () => (/* binding */ url_api)
+/* harmony export */   "api_config": () => (/* binding */ api_config)
 /* harmony export */ });
-var url_api = 'http://localhost:8000';
+// export const url_api = 'http://localhost:8000';
+var api_config = {
+  url: 'http://localhost:8000',
+  get_user: '/api/user/',
+  get_user_comments: '/api/user/comments',
+  post_login: '/api/login',
+  post_logout: '/api/logout',
+  post_register: '/api/register',
+  comments: {
+    get: '/api/comments',
+    post: '/api/comments'
+  },
+  comments_id: {
+    get: '/api/comments/',
+    put: '/api/comments/',
+    "delete": '/api/comments/'
+  }
+};
 
 /***/ }),
 

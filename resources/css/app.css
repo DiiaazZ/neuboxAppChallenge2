@@ -1,7 +1,4 @@
-.inputError{
-    color: red;
-}
-
+/* ============================== CSS GENERAL ============================== */
 .btnRojoDerecha{
     background-color: #fe6261; 
     color: white;
@@ -18,3 +15,47 @@
 .textNaranja{
     color: #fe6261;
 }
+
+/* ============================== CSS HOME COMPONENT ============================== */
+.myNavItem a{
+    color: #fe6261;
+}
+.myNavItem a:hover{
+    color: #efefef;
+    background-color: #fe6261;
+}
+
+.icon-flotante{
+    background-color: #efefef;
+    color: #fe6261;
+    position: fixed;
+    bottom: 50px;
+    right: 42px;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    padding-top: 4px;
+    padding-left: 11px;
+    z-index: 1;
+    border: 1px solid black;
+}
+.icon-flotante:hover{
+    color: white;
+    background-color: #fe6261;
+}
+
+#cardEquipo center:hover{
+    background-color: black;
+    color: #fe6261;
+}
+
+#cardEquipo center:hover #cardText{
+    color: white;
+}
+
+/* ============================== CSS LOGIN COMPONENT ============================== */
+.inputError{
+    color: red;
+}
+
+/* ============================== CSS IDEAS COMPONENT ============================== */

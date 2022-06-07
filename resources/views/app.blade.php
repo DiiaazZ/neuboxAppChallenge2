@@ -15,7 +15,7 @@
     <!-- CDN Sweetalert 2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>
     <!-- DIV CONTENEDOR DE COMPONENETES -->

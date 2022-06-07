@@ -27,7 +27,7 @@
             <div class="col-sm"></div>
             <div class="col-sm">
                 <label style="float: right;">Contraseña</label>
-                <input type="text" class="form-control" v-model="login.contraseña">
+                <input type="password" class="form-control" v-model="login.contraseña">
                 <label class="inputError" :style="errorContraseña">Este campo no debe quedar vacío</label>
             </div>
             <div class="col-sm"></div>
@@ -57,7 +57,7 @@
     </div>
 </template>
 <script>
-    import { url_api } from '../../config';
+    import { api_config } from '../../config';
 
     export default{
         data(){
@@ -103,10 +103,8 @@
                 };
 
                 // ENVIAR SOLICITUD A LA API
-                this.axios.post(url_api+'/api/login', parametros)
+                this.axios.post(api_config.url + api_config.post_login, parametros)
                     .then(response => {
-                        console.dir(response);
-
                         if(response['status'] == '200'){
                             Swal.fire({
                                 position: 'top-end',
@@ -123,13 +121,7 @@
                                 }
                             });
                         }else{
-                            Swal.fire({
-                                position: 'top-end',
-                                icon: 'warning',
-                                title: response['response']['data']['message'],
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
+                            this.mensajeDefault();
                         }
 
                         this.btnCargando = 'display: none;';
@@ -139,14 +131,17 @@
                         this.btnCargando = 'display: none;';
                         this.btnLoguear = '';
 
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'warning',
-                            title: error['response']['data']['message'],
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
+                        this.mensajeDefault();
                     });
+            },
+            mensajeDefault(){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'warning',
+                    title: 'Usuario y/o contraseña incorrectos.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         }
     }

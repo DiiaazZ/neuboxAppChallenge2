@@ -65,12 +65,19 @@ Antes de ejecutar la APP deberás descargar las dependencias.
 
     npm install
 
-3.- Configura el archivo ".env".
+## Configura el archivo ".env".
+
+Para configurar tu archivo ".env" puedes utilizar el archivo ".env.example" como base. Debes configurar los siguientes valores:
+
+- **[DB_CONNECTION][Tipo de conexion a la base de datos]**
+- **[DB_HOST][Dirección de tu API]**
+- **[DB_PORT][Puerto de la base de datos]**
+- **[DB_DATABASE][Nombre de la base de datos]**
+- **[DB_USERNAME][Usuario]**
+- **[DB_PASSWORD][Contraseña]**
 
 Una vez instaladas las dependencias puedes ejecutar la aplicación correctamente.
 
     php artisan serve
-
-Para abrir la vista hacia el login de la APP, debes acceder a la IntraNet agregando a la barra de tu navegador "/intranet".
 
 ### Por favor, si encuentras vulnerabilidades, fallos o posibles mejoras en el código, favor de informarme mandando un new issues.

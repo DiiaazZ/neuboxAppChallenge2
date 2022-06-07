@@ -47,12 +47,12 @@
                 <div class="row">
                     <div class="col-sm">
                         <label style="float: right;">Contraseña:</label>
-                        <input type="text" class="form-control" v-model="usuario.password">
+                        <input type="password" class="form-control" v-model="usuario.password">
                         <label class="inputError" :style="errorPass1">{{ errorPass1Message }}</label>
                     </div>
                     <div class="col-sm">
                         <label style="float: right;">Confirmar Contraseña:</label>
-                        <input type="text" class="form-control" v-model="usuario.password_confirmation">
+                        <input type="password" class="form-control" v-model="usuario.password_confirmation">
                         <label class="inputError" :style="errorPass2">{{ errorPass2Message }}</label>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
     </div>
 </template>
 <script>
-    import { url_api } from '../../config';
+    import { api_config } from '../../config';
 
     export default{
         data(){
@@ -175,7 +175,7 @@
                 };
 
                 // ENVIAR SOLICITUD A LA API
-                this.axios.post(url_api+'/api/register', parametros)
+                this.axios.post(api_config.url + api_config.post_register, parametros)
                     .then(response => {
                         // console.log(response['data']['data']['api_token']);
                         // console.log(response['status']);
@@ -187,15 +187,15 @@
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            this.$router.push(`/intranet/comment?${response['data']['data']['api_token']}`);
-                        }else{
-                            Swal.fire({
-                                position: 'top-end',
-                                icon: 'warning',
-                                title: response['response']['data']['message'],
-                                showConfirmButton: false,
-                                timer: 1500
+                            // this.$router.push(`/intranet/comment?${response['data']['data']['api_token']}`);
+                            this.$router.push({name: "Comment", params:{
+                                    id: response['data']['data']['id'],
+                                    name: response['data']['data']['name'],
+                                    api: response['data']['data']['api_token'],
+                                }
                             });
+                        }else{
+                            this.mensajeDefault();
                         }
 
                         this.btnCargando = 'display: none;';
@@ -205,14 +205,17 @@
                         this.btnCargando = 'display: none;';
                         this.btnRegistrar = '';
 
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'warning',
-                            title: error['response']['data']['message'],
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
+                        this.mensajeDefault();
                     });
+            },
+            mensajeDefault(){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'warning',
+                    title: 'Solicitud no procesada, vuelve a intentar.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         }
     }

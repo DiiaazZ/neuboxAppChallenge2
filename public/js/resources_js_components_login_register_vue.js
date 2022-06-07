@@ -101,7 +101,7 @@ __webpack_require__.r(__webpack_exports__);
         password_confirmation: this.usuario.password_confirmation
       }; // ENVIAR SOLICITUD A LA API
 
-      this.axios.post(_config__WEBPACK_IMPORTED_MODULE_0__.url_api + '/api/register', parametros).then(function (response) {
+      this.axios.post(_config__WEBPACK_IMPORTED_MODULE_0__.api_config.url + _config__WEBPACK_IMPORTED_MODULE_0__.api_config.post_register, parametros).then(function (response) {
         // console.log(response['data']['data']['api_token']);
         // console.log(response['status']);
         if (response['status'] == '201') {
@@ -111,17 +111,18 @@ __webpack_require__.r(__webpack_exports__);
             title: 'Registro completado correctamente.',
             showConfirmButton: false,
             timer: 1500
-          });
+          }); // this.$router.push(`/intranet/comment?${response['data']['data']['api_token']}`);
 
-          _this.$router.push("/intranet/comment?".concat(response['data']['data']['api_token']));
-        } else {
-          Swal.fire({
-            position: 'top-end',
-            icon: 'warning',
-            title: response['response']['data']['message'],
-            showConfirmButton: false,
-            timer: 1500
+          _this.$router.push({
+            name: "Comment",
+            params: {
+              id: response['data']['data']['id'],
+              name: response['data']['data']['name'],
+              api: response['data']['data']['api_token']
+            }
           });
+        } else {
+          _this.mensajeDefault();
         }
 
         _this.btnCargando = 'display: none;';
@@ -130,13 +131,17 @@ __webpack_require__.r(__webpack_exports__);
         console.dir(error);
         _this.btnCargando = 'display: none;';
         _this.btnRegistrar = '';
-        Swal.fire({
-          position: 'top-end',
-          icon: 'warning',
-          title: error['response']['data']['message'],
-          showConfirmButton: false,
-          timer: 1500
-        });
+
+        _this.mensajeDefault();
+      });
+    },
+    mensajeDefault: function mensajeDefault() {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Solicitud no procesada, vuelve a intentar.',
+        showConfirmButton: false,
+        timer: 1500
       });
     }
   }
@@ -396,7 +401,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errorEmailMessage), 5
   /* TEXT, STYLE */
   )])])]), _hoisted_16]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
+    type: "password",
     "class": "form-control",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return $data.usuario.password = $event;
@@ -409,7 +414,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errorPass1Message), 5
   /* TEXT, STYLE */
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
+    type: "password",
     "class": "form-control",
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.usuario.password_confirmation = $event;
@@ -459,9 +464,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "url_api": () => (/* binding */ url_api)
+/* harmony export */   "api_config": () => (/* binding */ api_config)
 /* harmony export */ });
-var url_api = 'http://localhost:8000';
+// export const url_api = 'http://localhost:8000';
+var api_config = {
+  url: 'http://localhost:8000',
+  get_user: '/api/user/',
+  get_user_comments: '/api/user/comments',
+  post_login: '/api/login',
+  post_logout: '/api/logout',
+  post_register: '/api/register',
+  comments: {
+    get: '/api/comments',
+    post: '/api/comments'
+  },
+  comments_id: {
+    get: '/api/comments/',
+    put: '/api/comments/',
+    "delete": '/api/comments/'
+  }
+};
 
 /***/ }),
 

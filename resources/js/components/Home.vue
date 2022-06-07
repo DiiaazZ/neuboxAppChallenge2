@@ -1,5 +1,5 @@
 <template>
-    <!-- SECCION DE MENU -->
+    <!-- MENU -->
     <nav class="navbar navbar-expand-md bg-light">
         <div class="container-fluid">
             <a class="navbar-brand">
@@ -15,42 +15,48 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav nav-pills flex-column flex-sm-row" style="min-width: 100%;">
                     
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fe6261;">Inicio</a>
+                    <li class="nav-item myNavItem">
+                        <a class="nav-link" href="#seccion-incio">Inicio</a>
                     </li>
                     
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fe6261;">Nosotros</a>
+                    <li class="nav-item myNavItem">
+                        <a class="nav-link" href="#seccion-nosotros">Nosotros</a>
                     </li>
                     
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fe6261;">Servicio</a>
+                    <li class="nav-item myNavItem">
+                        <a class="nav-link" href="#seccion-servicio">Servicio</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fe6261;">Características</a>
+                    <li class="nav-item myNavItem">
+                        <a class="nav-link" href="#seccion-caracteristicas">Características</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fe6261;">Equipo</a>
+                    <li class="nav-item myNavItem">
+                        <a class="nav-link" href="#seccion-equipo">Equipo</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fe6261;">Contacto</a>
+                    <li class="nav-item myNavItem">
+                        <a class="nav-link" href="#seccion-contacto">Contacto</a>
                     </li>
 
-                    <!-- <li class="nav-item">
+                    <li class="nav-item myNavItem" style="position: relative; left: 550px;">
                         <router-link exact-active-class="active" class="nav-link" to="/intraNet">Login</router-link>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
     
     <!-- CONTENIDO DE LA PAGINA  -->
-    <div class="container-fluid">    
+    <div class="container-fluid">
+        
+        <!-- SECCION ICONO VOLVER -->
+        <!-- <div class="div-flotante"> -->
+            <a class="icon-flotante" href="#" :style="activeReturnUp"><i class="fa-solid fa-arrow-up" style="font-size: 50px;"></i></a>
+        <!-- </div> -->
+
         <!-- SECCION TITULO -->
-        <div class="row">
+        <div class="row" id="seccion-inicio">
             <div class="col-sm" style="margin: 0; padding: 0;">
                 <img src="../../img/oficina1.png" class="img-fluid" style="min-width: 100%; height: 645px;">
             </div>
@@ -65,7 +71,7 @@
         </div>
 
         <!-- SECCION DE NOSOTROS -->
-        <div class="row" style="background-color: #efefef;">
+        <div class="row" style="background-color: #efefef;" id="seccion-nosotros">
             <div class="col-sm" style="padding: 6% 4%;">
                 <h1>Nosotros</h1>
                 <hr style="color: #fe6261; border-width: 3px;" class="border-3 opacity-75">
@@ -84,7 +90,7 @@
         </div>
 
         <!-- SECCION DE SERVICIOS -->
-        <div class="row">
+        <div class="row" id="seccion-servicio">
             <div class="col-sm" style="padding: 6% 4%;">
                 <div class="row">
                     <div class="col-sm">
@@ -124,7 +130,7 @@
         </div>
 
         <!-- SECCION DE CARACTERISTICAS -->
-        <div class="row" style="background-color: #efefef;">
+        <div class="row" style="background-color: #efefef;" id="seccion-caracteristicas">
             <div class="col-sm" style="padding: 6% 4%;">
                 <div class="row">
                     <div class="col-sm">
@@ -175,7 +181,7 @@
         </div>
 
         <!-- SECCION DE NUESTRO EQUIPO -->
-        <div style="padding: 6% 4%;">
+        <div style="padding: 6% 4%;" id="seccion-equipo">
             <div class="row">
                 <div class="col-sm">
                     <h1>Nuestro equipo de trabajo</h1>
@@ -192,13 +198,13 @@
 
             <div class="row">
                 <div class="col-sm" style="margin: 0; padding: 0;">
-                    <div class="card" style="width: 90%; height: 100%; padding-top: 5%; background-color: #efefef;">
-                        <center>
+                    <div class="card" id="cardEquipo" style="width: 90%; height: 100%; background-color: #efefef;">
+                        <center style="padding-top: 5%;">
                             <img src="../../img/perfil1.jpg" class="card-img-top img-fluid" style="border-radius: 50%; width: 300px; height: 300px;">
                             <div class="card-body">
                                 <h5>Rodrigo Alonso Herrera Aspra</h5>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" id="cardText">
                                 Some quick example text to build on the card title and make up the bulk of the card's 
                                 content.
                             </div>
@@ -221,13 +227,13 @@
                 </div>
 
                 <div class="col-sm" style="margin: 0; padding: 0;">
-                    <div class="card" style="width: 90%; height: 100%; padding-top: 5%; background-color: #efefef;">
-                        <center>
+                    <div class="card" id="cardEquipo" style="width: 90%; height: 100%; background-color: #efefef;">
+                        <center style="padding-top: 5%;">
                             <img src="../../img/perfil2.jpg" class="card-img-top img-fluid" style="border-radius: 50%; width: 300px; height: 300px;">
                             <div class="card-body">
                                 <h5>Arturo Elías Ayud</h5>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" id="cardText">
                                 Some quick example text to build on the card title and make up the bulk of the card's 
                                 content.
                             </div>
@@ -250,13 +256,13 @@
                 </div>
 
                 <div class="col-sm" style="margin: 0; padding: 0;">
-                    <div class="card" style="width: 90%; height: 100%; padding-top: 5%; background-color: #efefef;">
-                        <center>
+                    <div class="card" id="cardEquipo" style="width: 90%; height: 100%; background-color: #efefef;">
+                        <center style="padding-top: 5%;">
                             <img src="../../img/perfil3.jpg" class="card-img-top img-fluid" style="border-radius: 50%; width: 300px; height: 300px;">
                             <div class="card-body">
                                 <h5>Carlos Bremer</h5>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" id="cardText">
                                 Some quick example text to build on the card title and make up the bulk of the card's 
                                 content.
                             </div>
@@ -281,7 +287,7 @@
         </div>
 
         <!-- SECCION DE CONTACTO -->
-        <div class="row">
+        <div class="row" id="seccion-contacto">
             <div class="col-sm" style="padding: 6% 4%; background-color: #efefef;">
                 <div class="row">
                     <div class="col-sm">
@@ -483,3 +489,17 @@
 
     </div>
 </template>
+<script>
+    export default{
+        data(){
+            return{
+                // activeReturnUp: 'display: none;',
+            }
+        },
+        methods:{
+            activarFlecha(){
+                // activeReturnUp = '';
+            }
+        }
+    }
+</script>
